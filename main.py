@@ -5,13 +5,14 @@ import nltk
 import colorsys
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+from typing import Dict, Tuple 
 
 def preprocess(text:str)->str:
     text=text.strip().lower()
     text=re.sub(r'\s+',' ',text)
     return text
 
-def detect_mood_vader(text:str)->tuple:
+def detect_mood_vader(text:str)->str:
     sia=SentimentIntensityAnalyzer()
     scores=sia.polarity_scores(text)
     compound=scores['compound']

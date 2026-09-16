@@ -1,0 +1,3 @@
+# Hide the computer's messy cache files
+__pycache__/
+*.pyc

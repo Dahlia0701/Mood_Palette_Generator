@@ -237,7 +237,12 @@ if st.button("Generate Palette"):
 
     
     colors = generate_palette(mood)
-    emoji, msg = mood_messages.get(mood, ("🎨", "A lovely color mood just for you."))
+    default = ("🎨", "A lovely color mood just for you.")
+    result = mood_messages.get(mood)
+    if result is None:
+        emoji,msg = default
+    else:
+        emoji,msg=result
 
     st.markdown(
         f"""
